@@ -6,9 +6,9 @@ import java.util.Stack;
 public class DFS {
 
 	private Stack<Vertex> stack;
-	
+
 	public DFS() {
-		this.stack = new Stack();
+		this.stack = new Stack<Vertex>();
 	}
 
 	public void dfs(List<Vertex> vertexList) {
@@ -20,6 +20,8 @@ public class DFS {
 			}
 		}
 	}
+
+	
 
 	private void dfsWithStack(Vertex rootVertex) {
 
@@ -36,6 +38,32 @@ public class DFS {
 					v.setVisited(true);
 					this.stack.push(v);
 				}
+			}
+		}
+
+	}
+	
+	
+	public void dfsRecursively(List<Vertex> vertexList) {
+
+		for (Vertex v : vertexList) {
+			if (!v.isVisited()) {
+				v.setVisited(true);
+				dfsWithRecursion(v);
+			}
+		}
+	}
+
+	private void dfsWithRecursion(Vertex vertex) {
+
+		vertex.setVisited(true);
+
+		System.out.print(vertex + " ");
+
+		for (Vertex v : vertex.getNeighbourList()) {
+			if (!v.isVisited()) {
+				v.setVisited(true);
+				dfsWithRecursion(v);
 			}
 		}
 

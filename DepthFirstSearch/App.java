@@ -128,6 +128,19 @@ public class App {
 		
 				
 		DFS dfs = new DFS();
+		
+		//call implementation with stack
 		dfs.dfs(lstVertex);
+		
+		//resets the list 'isVisited' property
+		for(Vertex v: lstVertex) {
+			v.setVisited(false);
+		}
+		
+		//only a break line
+		System.out.println();
+		
+		//call implementation with recursion
+		dfs.dfsRecursively(lstVertex);
 	}                  
 }
