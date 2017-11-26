@@ -5,7 +5,7 @@ public class Edge {
 	private double weight;
 	private Vertex startVertex;
 	private Vertex targetVertex;
-	
+
 	public Edge(double weight, Vertex startVertex, Vertex targetVertex) {
 		this.weight = weight;
 		this.startVertex = startVertex;
@@ -36,6 +36,9 @@ public class Edge {
 		this.targetVertex = targetVertex;
 	}
 
-	
-	
+	@Override
+	public String toString() {
+		return "{" + Double.valueOf(weight).intValue() + "}" + startVertex + "->" + targetVertex;
+	}
+
 }
