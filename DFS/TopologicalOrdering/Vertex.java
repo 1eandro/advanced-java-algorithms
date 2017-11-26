@@ -1,4 +1,4 @@
-package TopologicalOrdering;
+package DFS.TopologicalOrdering;
 
 import java.util.ArrayList;
 import java.util.List;

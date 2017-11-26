@@ -1,29 +1,25 @@
-package DepthFirstSearch;
+package BFS.BreadthFirstSearch;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Vertex {
-
-	private String name;
+	
+	private int data;
 	private boolean visited;
 	private List<Vertex> neighbourList;
-
-	public Vertex(String name) {
-		this.name = name;
-		this.neighbourList = new ArrayList<>();
+	
+	public Vertex(int data) {
+		this.data = data;
+		this.neighbourList = new ArrayList<Vertex>();
 	}
 
-	public void addNeighbour(Vertex vertex) {
-		this.neighbourList.add(vertex);
+	public int getData() {
+		return data;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setData(int data) {
+		this.data = data;
 	}
 
 	public boolean isVisited() {
@@ -41,8 +37,12 @@ public class Vertex {
 	public void setNeighbourList(List<Vertex> neighbourList) {
 		this.neighbourList = neighbourList;
 	}
+	
+	public void addNeighbourVertex(Vertex vertex) {
+		this.neighbourList.add(vertex);
+	}
 
 	public String toString() {
-		return this.name;
+		return ""+this.data;
 	}
 }

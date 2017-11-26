@@ -1,4 +1,4 @@
-package cycleDetectionDFS;
+package DFS.cycleDetectionDFS;
 
 import java.util.List;
 

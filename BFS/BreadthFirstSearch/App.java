@@ -1,4 +1,4 @@
-package BreadthFirstSearch;
+package BFS.BreadthFirstSearch;
 
 public class App {
 	

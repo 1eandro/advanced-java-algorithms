@@ -1,4 +1,4 @@
-package MazeSolver;
+package DFS.MazeSolver;
 
 public class App {
 

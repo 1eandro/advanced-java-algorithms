@@ -1,4 +1,4 @@
-package DepthFirstSearch;
+package DFS.DepthFirstSearch;
 
 import java.util.ArrayList;
 import java.util.List;
