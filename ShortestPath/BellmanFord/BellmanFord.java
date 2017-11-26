@@ -1,5 +1,7 @@
 package ShortestPath.BellmanFord;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BellmanFord {
@@ -7,12 +9,12 @@ public class BellmanFord {
 	private List<Edge> edgeList;
 	private List<Vertex> vertexList;
 
-	public BellmanFord(List<Edge> edgeList, List<Vertex> vertexList) {
+	public BellmanFord(List<Vertex> vertexList, List<Edge> edgeList) {
 		this.edgeList = edgeList;
 		this.vertexList = vertexList;
 	}
 
-	public void bellmanFord(Vertex sourceVertex) {
+	public void bellmanFord(Vertex sourceVertex) throws Exception {
 
 		sourceVertex.setDistance(0);
 
@@ -38,7 +40,7 @@ public class BellmanFord {
 		for (Edge edge : edgeList) { // V-th iteration
 			if (edge.getStartVertex().getDistance() != Double.MAX_VALUE) {
 				if (hasCycle(edge)) {
-					System.out.println("There has been a negative cycle detected...");
+					throw new Exception("There has been a negative cycle detected...");
 				}
 			}
 		}
@@ -50,16 +52,26 @@ public class BellmanFord {
 	}
 
 	public void shortestPathTo(Vertex targetVertex) {
-		if (targetVertex.getDistance() == Double.MAX_VALUE) {
-			System.out.println("There is no path from the source to the target");
-		}
-
-		Vertex actualVertex = targetVertex;
 		
-		System.out.println();
-		while (actualVertex.getPreviousVertex() != null) {
-			System.out.print(actualVertex + " - ");
-			actualVertex = actualVertex.getPreviousVertex();
+		List<Vertex> path = new ArrayList<Vertex>();
+
+		if (targetVertex.getDistance() != Double.MAX_VALUE) {
+			System.out.println(
+					"There is a shortest path from source to target, with cost: " + targetVertex.getDistance());
+
+			Vertex actualVertex = targetVertex;
+			path.add(actualVertex);
+
+			while (actualVertex.getPreviousVertex() != null) {
+				actualVertex = actualVertex.getPreviousVertex();
+				path.add(actualVertex);
+			}
+		} else {
+			System.out.println("There is no path from souce to target...");
 		}
+		
+		Collections.reverse(path);
+		
+		System.out.println(path);
 	}
 }

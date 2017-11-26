@@ -1,15 +1,15 @@
 package ShortestPath.BellmanFord;
 
 public class Edge {
-	
+
 	private double weight;
 	private Vertex startVertex;
 	private Vertex targetVertex;
-	
-	public Edge(double weight, Vertex startVertex, Vertex targetVertex) {
-		this.weight = weight;
+
+	public Edge(Vertex startVertex, Vertex targetVertex, double weight) {
 		this.startVertex = startVertex;
 		this.targetVertex = targetVertex;
+		this.weight = weight;
 	}
 
 	public double getWeight() {
@@ -36,7 +36,4 @@ public class Edge {
 		this.targetVertex = targetVertex;
 	}
 
-	
-	
-	
 }
